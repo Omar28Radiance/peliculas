@@ -18,11 +18,7 @@ export default function Paginacion(props) {
 
     return (
         <div className="topbar-filter">
-            {/* <label>Movies per page:</label>
-            <select>
-                <option value="range">5 Movies</option>
-                <option value="saab">10 Movies</option>
-            </select> */}
+           
             <div className="pagination2">
                 <span>Página {props.pagina} de {props.total}:</span>
 
