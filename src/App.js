@@ -15,8 +15,19 @@ function App() {
 	const buscarPelicula = () => {
 		let url = 'https://raw.githubusercontent.com/lucasmoy-dev/Curso-de-React/main/Proyecto%202%20-%20Web%20de%20Peliculas/Proyecto%20Terminado/src/peliculas.json';
 
-		fetch
+		let respuesta = await fetch(url, {
+			"method": "GET",
+			"mode": 'no-cors',
+			"headers": {
+				"Accept": 'application/json',
+				"Content-Type": 'application/json'
+			}
+		});
+		let json = await respuesta.json();
+		alert(json);
 	}
+
+	buscarPelicula();
 
 	const cargarPeliculas = () => {
 		peliculas = peliculas.slice(
