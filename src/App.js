@@ -3,31 +3,29 @@ import './App.css';
 import PageWrapper from './PageWrapper';
 import Paginacion from './Paginacion';
 import Pelicula from './Pelicula';
-import peliculasJson from './peliculas.json';
 
 function App() {
 
 	const [paginaActual, setPaginaActual] = useState(1);
+	const [peliculas, setPeliculas] = useState([]);
 	const TOTAL_POR_PAGINA = 7;
 
-	let peliculas = peliculasJson;
-
-	const buscarPelicula = () => {
-		let url = 'https://raw.githubusercontent.com/lucasmoy-dev/Curso-de-React/main/Proyecto%202%20-%20Web%20de%20Peliculas/Proyecto%20Terminado/src/peliculas.json';
+	const buscarPeliculas = () => {
+		let url = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/lucasmoy-dev/Curso-de-React/main/Proyecto%202%20-%20Web%20de%20Peliculas/Proyecto%20Terminado/src/peliculas.json';
 
 		let respuesta = await fetch(url, {
 			"method": "GET",
 			"mode": 'no-cors',
 			"headers": {
 				"Accept": 'application/json',
-				"Content-Type": 'application/json'
+				"Content-Type": 'application/json',
+				"Origin": 'https://raw.githubusercontent.com/'
 			}
 		});
 		let json = await respuesta.json();
-		alert(json);
+		setPeliculas(json);
 	}
 
-	buscarPelicula();
 
 	const cargarPeliculas = () => {
 		peliculas = peliculas.slice(
@@ -46,6 +44,8 @@ function App() {
 	return (
 		<PageWrapper>
 
+			<button onClick={buscarPeliculas}>Prueba</button>
+{/** continuar video desde minuto 02:39:17 */}
 			{peliculas.map(pelicula =>
 				<Pelicula titulo={pelicula.titulo} calificacion={pelicula.calificacion}
 					director={pelicula.director} actores={pelicula.actores} fecha={pelicula.fecha} duracion={pelicula.duracion}
