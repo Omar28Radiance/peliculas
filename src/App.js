@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react/cjs/react.production.min';
 import './App.css';
 import PageWrapper from './PageWrapper';
 import Paginacion from './Paginacion';
@@ -10,7 +11,11 @@ function App() {
 	const [peliculas, setPeliculas] = useState([]);
 	const TOTAL_POR_PAGINA = 7;
 
-	const buscarPeliculas = () => {
+	useEffect(() => {
+		buscarPeliculas();
+	}, []);
+
+	const buscarPeliculas = async () => {
 		let url = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/lucasmoy-dev/Curso-de-React/main/Proyecto%202%20-%20Web%20de%20Peliculas/Proyecto%20Terminado/src/peliculas.json';
 
 		let respuesta = await fetch(url, {
@@ -28,14 +33,14 @@ function App() {
 
 
 	const cargarPeliculas = () => {
-		peliculas = peliculas.slice(
-			(paginaActual - 1) * TOTAL_POR_PAGINA, 
-			paginaActual * TOTAL_POR_PAGINA 
-		);
+		// peliculas = peliculas.slice(
+		// 	(paginaActual - 1) * TOTAL_POR_PAGINA, 
+		// 	paginaActual * TOTAL_POR_PAGINA 
+		// );
 	}
 
 	const getTotalPaginas = () => {
-		let cantidadTotalDePeliculas = peliculasJson.length;
+		let cantidadTotalDePeliculas = peliculas.length;
 		return Math.ceil(cantidadTotalDePeliculas / TOTAL_POR_PAGINA);
 	}
 
@@ -43,8 +48,6 @@ function App() {
 
 	return (
 		<PageWrapper>
-
-			<button onClick={buscarPeliculas}>Prueba</button>
 {/** continuar video desde minuto 02:39:17 */}
 			{peliculas.map(pelicula =>
 				<Pelicula titulo={pelicula.titulo} calificacion={pelicula.calificacion}
