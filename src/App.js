@@ -31,25 +31,20 @@ function App() {
 		setPeliculas(json);
 	}
 
-
-	const cargarPeliculas = () => {
-		// peliculas = peliculas.slice(
-		// 	(paginaActual - 1) * TOTAL_POR_PAGINA, 
-		// 	paginaActual * TOTAL_POR_PAGINA 
-		// );
-	}
-
 	const getTotalPaginas = () => {
 		let cantidadTotalDePeliculas = peliculas.length;
 		return Math.ceil(cantidadTotalDePeliculas / TOTAL_POR_PAGINA);
 	}
 
-	cargarPeliculas();
+	let peliculasPorPagina = peliculas.slice(
+		(paginaActual - 1) * TOTAL_POR_PAGINA, 
+		paginaActual * TOTAL_POR_PAGINA 
+	);
 
 	return (
 		<PageWrapper>
 {/** continuar video desde minuto 02:39:17 */}
-			{peliculas.map(pelicula =>
+			{peliculasPorPagina.map(pelicula =>
 				<Pelicula titulo={pelicula.titulo} calificacion={pelicula.calificacion}
 					director={pelicula.director} actores={pelicula.actores} fecha={pelicula.fecha} duracion={pelicula.duracion}
 					img={pelicula.img}>
@@ -69,4 +64,3 @@ function App() {
 }
 
 export default App;
-//Continuar video desde minuto 02:14:03
