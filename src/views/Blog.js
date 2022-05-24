@@ -1,7 +1,7 @@
 import { useEffect ,useState } from 'react';
 // import { useEffect } from 'react/cjs/react.production.min';
 import './App.css';
-import PageWrapper from './PageWrapper';
+import PageWrapper from './views/PageWrapper';
 import Paginacion from './Paginacion';
 import Pelicula from './Pelicula';
 

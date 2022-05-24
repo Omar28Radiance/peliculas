@@ -1,13 +1,13 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Blog from './Blog';
-import ListadoPeliculas from './ListadoPeliculas';
+import Blog from './views/Blog';
+import ListadoPeliculas from './views/ListadoPeliculas';
 
 function App() {
 
 	return (
 		<BrowserRouter>
-			<switch>
+			<Switch>
 				<Route path="/blog">
 					<Blog />
 				</Route>
@@ -15,7 +15,7 @@ function App() {
 				<Route path="/">
 					<ListadoPeliculas />
 				</Route>
-			</switch>
+			</Switch>
 		</BrowserRouter>
 	);
 }
