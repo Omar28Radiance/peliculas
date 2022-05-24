@@ -5,7 +5,11 @@ function App() {
 
 	return (
 		<switch>
-			<Route path="/peliculas">
+			<Route path="/blog">
+				<ListadoPeliculas />
+			</Route>
+			
+			<Route path="/">
 				<ListadoPeliculas />
 			</Route>
 		</switch>
