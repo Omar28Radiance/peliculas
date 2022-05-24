@@ -5,7 +5,7 @@ function App() {
 
 	return (
 		<switch>
-			<Route>
+			<Route path="/peliculas">
 				<ListadoPeliculas />
 			</Route>
 		</switch>
@@ -13,4 +13,4 @@ function App() {
 }
 
 export default App;
-{/** continuar video desde minuto 02:39:17 */}
+{/** continuar video desde minuto 02:49:15 */}
