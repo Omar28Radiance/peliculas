@@ -1,4 +1,5 @@
 import './App.css';
+import Blog from './Blog';
 import ListadoPeliculas from './ListadoPeliculas';
 
 function App() {
@@ -6,9 +7,9 @@ function App() {
 	return (
 		<switch>
 			<Route path="/blog">
-				<ListadoPeliculas />
+				<Blog />
 			</Route>
-			
+
 			<Route path="/">
 				<ListadoPeliculas />
 			</Route>
