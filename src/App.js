@@ -8,14 +8,14 @@ function App() {
 	return (
 		<BrowserRouter>
 			<switch>
-			<Route path="/blog">
-				<Blog />
-			</Route>
+				<Route path="/blog">
+					<Blog />
+				</Route>
 
-			<Route path="/">
-				<ListadoPeliculas />
-			</Route>
-		</switch>
+				<Route path="/">
+					<ListadoPeliculas />
+				</Route>
+			</switch>
 		</BrowserRouter>
 	);
 }
