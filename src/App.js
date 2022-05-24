@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Blog from './Blog';
 import ListadoPeliculas from './ListadoPeliculas';
@@ -5,7 +6,8 @@ import ListadoPeliculas from './ListadoPeliculas';
 function App() {
 
 	return (
-		<switch>
+		<BrowserRouter>
+			<switch>
 			<Route path="/blog">
 				<Blog />
 			</Route>
@@ -14,6 +16,7 @@ function App() {
 				<ListadoPeliculas />
 			</Route>
 		</switch>
+		</BrowserRouter>
 	);
 }
 
